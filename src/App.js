@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import Card from "./Components/UI/Card";
+import Navbar from "./Components/Content/Navbar";
+import Section from "./Components/Content/Section";
+import dataArray from "./Data";
 
 function App() {
+  const data = dataArray.map((dataArrayItem) => {
+    return <Section key={dataArrayItem.id} item={dataArrayItem} />;
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Card>
+        <Navbar />
+        {data}
+      </Card>
     </div>
   );
 }
